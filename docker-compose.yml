@@ -21,6 +21,7 @@ services:
       POSTGRES_PASSWORD: "123"
     volumes:
       - ./postgres:/docker-entrypoint-initdb.d/
+      - ./postgres/data:/var/lib/postgresql/data
   mongo:
     image: mongo
     #ports:
@@ -28,6 +29,8 @@ services:
     environment:
       MONGO_INITDB_DATABASE: "practic3Adminki"
     network_mode: host
+    volumes:
+      - ./mongo/data:/data/db
 
 networks:
   host:
